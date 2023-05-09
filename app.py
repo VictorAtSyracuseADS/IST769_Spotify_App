@@ -30,7 +30,7 @@ spotify = SpotifyAPI(client_id, client_secret)
 Data = spotify.search({"track": f"{Name_of_Track}"}, search_type="track")
 
 need = []
-for i, item in enumerate(Data['tracks']):
+for i, item in enumerate(Data['tracks']['items']):
     track = item['album']
     track_id = item['id']
     song_name = item['name']
