@@ -47,9 +47,8 @@ Result_df = pd.DataFrame(columns=('Item', 'Artist', 'Album Name', 'Id', 'Song Na
 current_dur = 0
 
 for index, row in Track_df.sort_values(by="Popularity").iterrows():
-    Result_df.append(row)
-    
-    if current_dur < Duration:
+    if Duration >= current_dur:
+        Result_df.concat(row)
         current_dur += int(row['Duration'])
     else:
         current_dur = 0
