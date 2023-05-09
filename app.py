@@ -66,5 +66,5 @@ Result_df = pd.DataFrame(data, index=None, columns=('Artist', 'Song Name', 'Popu
 
 st.table(Result_df[['Artist', 'Song Name', 'Popularity', 'Duration']])
 
-if submitted:
-    Result_df.to_csv("test.csv")
+# if submitted:
+#     Result_df.to_csv("test.csv")
