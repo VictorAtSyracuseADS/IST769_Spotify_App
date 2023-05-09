@@ -9,8 +9,8 @@ def local_css(file_name):
 local_css("style.css")
 
 st.title("Spotify App")
-Name_of_Playlist = st.text_input("Enter type of playlist")
-Duration_Range = st.slider(label="Duration of playlist in minutes", help = "Choose a range of the playlist length using minutes")
+Name_of_Playlist = st.text_input("Enter type of playlist", help = "Enter a track and choose a playlist length using minutes")
+Duration_Range = st.slider(label="Duration of playlist in minutes")
 
 # Spotify API
 
