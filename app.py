@@ -18,27 +18,18 @@ import os
 from auth import *
 from spotipy_client import *
 import pandas as pd
-import spotipy
-from spotipy.oauth2 import SpotifyClientCredentials
 
 client_id = cid
 client_secret = secret
 
 spotify = SpotifyAPI(client_id, client_secret)
 
-ccm = SpotifyClientCredentials(client_id = cid, client_secret = secret)
-sp = spotipy.Spotify(client_credentials_manager = ccm)
-
-os.environ["SPOTIPY_CLIENT_ID"] = cid
-os.environ["SPOTIPY_CLIENT_SECRET"] = secret
-
-
 # Search for the track using Spotipy and get its ID
 results = spotify.search({"track": f"{Name_of_Track}"}, search_type="track")
 track_id = results["tracks"]["items"][0]["id"]
 
 # Generate song recommendations using Spotipy
-Data = spotipy.recommendations(seed_tracks=[track_id], limit=100)
+Data = spotiFy.recommendations(seed_tracks=[track_id], limit=100)
 
 need = []
 for i, item in enumerate(Data['tracks']['items']):
