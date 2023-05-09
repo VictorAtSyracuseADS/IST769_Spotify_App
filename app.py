@@ -10,6 +10,7 @@ local_css("style.css")
 
 st.title("Spotify App")
 Name_of_Artist = st.text_input("Artist Name")
+Duration = st.number_input("Duration of playlist")
 button_clicked = st.button("OK")
 
 # Spotipy
@@ -31,7 +32,8 @@ for i, item in enumerate(Data['tracks']['items']):
     track_id = item['id']
     song_name = item['name']
     popularity = item['popularity']
-    need.append((i, track['artists'][0]['name'], track['name'], track_id, song_name, track['release_date'], popularity))
+    duration = item['duration (ms)']
+    need.append((i, track['artists'][0]['name'], track['name'], track_id, song_name, track['release_date'], popularity, duration))
  
 Track_df = pd.DataFrame(need, index=None, columns=('Item', 'Artist', 'Album Name', 'Id', 'Song Name', 'Release Date', 'Popularity'))
 
