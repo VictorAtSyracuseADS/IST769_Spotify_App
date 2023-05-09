@@ -43,6 +43,17 @@ def convert_ms(duration):
 
 Track_df['Duration'] = Track_df['Duration'].apply(convert_ms)
 
-Result_df = Track_df.loc[:,Track_df['Duration'].sum() < Duration].sort_values(by="Popularity")
+Result_df = pd.DataFrame(columns=('Item', 'Artist', 'Album Name', 'Id', 'Song Name', 'Release Date', 'Popularity', 'Duration'))
+current_dur = 0
 
+for index, row in Track_df.sort_values(by="Popularity").iterrows():
+    Result_df.append(row)
+    
+    if current_dur < Duration:
+        current_dur += int(row['Duration'])
+    else:
+        current_dur = 0
+        break
+
+# Show the result from the filter
 st.table(Result_df[['Artist','Album Name', 'Song Name', 'Popularity', 'Duration']])
