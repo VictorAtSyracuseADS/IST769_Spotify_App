@@ -11,7 +11,6 @@ local_css("style.css")
 st.title("Spotify App")
 Name_of_Playlist = st.text_input("Enter type of playlist")
 Duration_Range = st.slider(label="Duration of playlist in minutes", help = "Choose a range of the playlist length using minutes")
-button_clicked = st.button("OK")
 
 # Spotify API
 
@@ -46,18 +45,17 @@ Track_df['Duration'] = Track_df['Duration'].apply(convert_ms)
 current_dur = 0
 data = []
 
-if button_clicked:
-    for i, row in Track_df.sort_values(by="Popularity", ascending = False).iterrows():
-        if Duration_Range > current_dur:
-            artist = row['Artist']
-            song = row['Song Name']
-            pop = row['Popularity']
-            dur = row['Duration']                        
-            data.append((artist, song, pop, dur))
-            current_dur += int(row['Duration'])
-        else:
-            current_dur = 0
-            break
+for i, row in Track_df.sort_values(by="Popularity", ascending = False).iterrows():
+    if Duration_Range > current_dur:
+        artist = row['Artist']
+        song = row['Song Name']
+        pop = row['Popularity']
+        dur = row['Duration']                        
+        data.append((artist, song, pop, dur))
+        current_dur += int(row['Duration'])
+    else:
+        current_dur = 0
+        break
 
 # Show the result from the filter
 Result_df = pd.DataFrame(data, index=None, columns=('Artist', 'Song Name', 'Popularity', 'Duration'))
