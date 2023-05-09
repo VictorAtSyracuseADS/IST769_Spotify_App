@@ -23,7 +23,7 @@ client_secret = secret
 
 spotify = SpotifyAPI(client_id, client_secret)
 
-Data = spotify.search({"playlist": f"{Name_of_Playlist}"}, search_type="track")
+Data = spotify.search({"playlist": f"{Name_of_Playlist}"}, search_type="playlist")
 
 need = []
 for i, item in enumerate(Data['tracks']['items']):
@@ -37,7 +37,7 @@ for i, item in enumerate(Data['tracks']['items']):
 Track_df = pd.DataFrame(need, index=None, columns=('Item', 'Artist', 'Album Name', 'Id', 'Song Name', 'Release Date', 'Popularity', 'Duration'))
 
 def convert_ms(duration):
-    minutes = round(int(duration / 60000), 1)
+    minutes = round(float(duration / 60000), 1)
     return minutes 
 
 Track_df['Duration'] = Track_df['Duration'].apply(convert_ms)
