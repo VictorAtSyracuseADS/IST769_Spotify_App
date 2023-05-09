@@ -4,6 +4,8 @@ body {
 }
 
 .stButton>button {
+    postion: absolute;
+    left: 50%;
     text-align: center;
     color: #1e221e;
     border-radius: 1em;
