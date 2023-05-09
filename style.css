@@ -5,8 +5,8 @@ body {
 
 .stButton>button {
     color: #1e221e;
-    border-radius: 50%;
+    border-radius: 10%;
     border-color: aquamarine;
     height: 3em;
-    width: 3em;
+    width: 9em;
 }
