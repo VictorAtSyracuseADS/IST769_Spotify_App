@@ -8,9 +8,7 @@ def local_css(file_name):
 
 local_css("style.css")
 
-Types_of_Features = ("acousticness", "danceability", "energy", "instrumentalness", "liveness", "loudness", "speechiness", "tempo", "valence")
-
-st.title("Spotify Features App")
+st.title("Spotify App")
 Name_of_Artist = st.text_input("Artist Name")
 button_clicked = st.button("OK")
 
@@ -44,4 +42,4 @@ headers = {
 }
 endpoint = "https://api.spotify.com/v1/audio-features/"
 
-st.table(Track_df[['Artist','Album Name', 'Song Name', 'Popularity']]
+st.table(Track_df[['Artist','Album Name', 'Song Name', 'Popularity']])
