@@ -60,6 +60,5 @@ for i, item in enumerate(Track_df.sort_values(by="Popularity", ascending = False
 
 # Show the result from the filter
 Result_df = pd.DataFrame(data, index=None, columns=('Artist', 'Song Name', 'Popularity', 'Duration')
-chart = st.line_chart(Result_df['Duration'], Result_df['Popularity'])
 
 st.table(Result_df[['Artist','Album Name', 'Song Name', 'Popularity', 'Duration']])
