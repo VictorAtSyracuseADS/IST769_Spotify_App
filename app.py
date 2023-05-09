@@ -46,7 +46,7 @@ Track_df['Duration'] = Track_df['Duration'].apply(convert_ms)
 current_dur = 0
 data = []
 
-for i, row in enumerate(Track_df.sort_values(by="Popularity", ascending = False)):
+for i, row in Track_df.sort_values(by="Popularity", ascending = False).iterrows():
     if Duration > current_dur:
         artist = row['Artist']
         song = row['Song Name']
