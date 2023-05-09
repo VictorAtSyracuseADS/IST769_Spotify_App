@@ -12,6 +12,8 @@ st.title("Spotify App")
 Name_of_Track = st.text_input("Enter a track", help = "Enter a track and choose a playlist length using minutes")
 Duration_Range = st.slider(label="Duration of playlist in minutes")
 
+submitted = st.button("Save playlist")
+
 # Spotify API
 
 import os
@@ -63,3 +65,6 @@ for i, row in Track_df.sort_values(by="Popularity", ascending = False).iterrows(
 Result_df = pd.DataFrame(data, index=None, columns=('Artist', 'Song Name', 'Popularity', 'Duration'))
 
 st.table(Result_df[['Artist', 'Song Name', 'Popularity', 'Duration']])
+
+if submitted:
+    Result_df.to_csv("test.csv")
