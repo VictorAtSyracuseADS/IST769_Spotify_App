@@ -46,10 +46,13 @@ Track_df['Duration'] = Track_df['Duration'].apply(convert_ms)
 Result_df = pd.DataFrame(columns=('Item', 'Artist', 'Album Name', 'Id', 'Song Name', 'Release Date', 'Popularity', 'Duration'))
 current_dur = 0
 
+chart = st.line_chart(Result_df['Duration'])
+
 for index, row in Track_df.sort_values(by="Popularity", ascending = False).iterrows():
-    if Duration >= current_dur:
-        st.add_rows(row)
+    if Duration > current_dur:
+        chart.add_rows(row['Duration'])
         current_dur += int(row['Duration'])
+        time.sleep(1)
     else:
         current_dur = 0
         break
