@@ -9,7 +9,7 @@ def local_css(file_name):
 local_css("style.css")
 
 st.title("Spotify App")
-Name_of_Artist = st.text_input("Artist Name")
+Name_of_Mood = st.text_input("Enter desired mood")
 Duration = st.number_input("Duration of playlist in minutes", min_value = 1, value = 30, step = 1, help = "Enter the length of the playlist using minutes")
 button_clicked = st.button("OK")
 
@@ -24,7 +24,7 @@ client_secret = secret
 
 spotify = SpotifyAPI(client_id, client_secret)
 
-Data = spotify.search({"artist": f"{Name_of_Artist}"}, search_type="track")
+Data = spotify.search({"mood": f"{Name_of_Mood}"}, search_type="track")
 
 need = []
 for i, item in enumerate(Data['tracks']['items']):
