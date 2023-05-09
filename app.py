@@ -48,7 +48,7 @@ data = []
 
 if button_clicked:
     for i, row in Track_df.sort_values(by="Popularity", ascending = False).iterrows():
-        if Duration_Range[1] > current_dur:
+        if Duration_Range > current_dur:
             artist = row['Artist']
             song = row['Song Name']
             pop = row['Popularity']
