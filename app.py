@@ -48,11 +48,11 @@ current_dur = 0
 
 for index, row in Track_df.sort_values(by="Popularity").iterrows():
     if Duration >= current_dur:
-        Result_df.concat([Result_df, row])
+        st.table(row)
         current_dur += int(row['Duration'])
     else:
         current_dur = 0
         break
 
 # Show the result from the filter
-st.table(Result_df[['Artist','Album Name', 'Song Name', 'Popularity', 'Duration']])
+# st.table(Result_df[['Artist','Album Name', 'Song Name', 'Popularity', 'Duration']])
