@@ -46,9 +46,9 @@ Track_df['Duration'] = Track_df['Duration'].apply(convert_ms)
 Result_df = pd.DataFrame(columns=('Item', 'Artist', 'Album Name', 'Id', 'Song Name', 'Release Date', 'Popularity', 'Duration'))
 current_dur = 0
 
-for index, row in Track_df.sort_values(by="Popularity").iterrows():
+for index, row in Track_df.sort_values(by="Popularity", ascending = False).iterrows():
     if Duration >= current_dur:
-        st.table(row)
+        st.add_rows(row)
         current_dur += int(row['Duration'])
     else:
         current_dur = 0
