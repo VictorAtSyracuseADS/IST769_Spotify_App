@@ -9,7 +9,7 @@ def local_css(file_name):
 local_css("style.css")
 
 st.title("Spotify App")
-Name_of_Playlist = st.text_input("Enter type of playlist", help = "Enter a track and choose a playlist length using minutes")
+Name_of_Track = st.text_input("Enter a track", help = "Enter a track and choose a playlist length using minutes")
 Duration_Range = st.slider(label="Duration of playlist in minutes")
 
 # Spotify API
@@ -23,7 +23,12 @@ client_secret = secret
 
 spotify = SpotifyAPI(client_id, client_secret)
 
-Data = spotify.search({"track": f"{Name_of_Playlist}"}, search_type="track")
+# Search for the track using Spotipy and get its ID
+results = sp.search(q=f"track:{Name_of_Track}", type="track")
+track_id = results["tracks"]["items"][0]["id"]
+
+# Generate song recommendations using Spotipy
+Data = sp.recommendations(seed_tracks=[track_id], limit=100)
 
 need = []
 for i, item in enumerate(Data['tracks']['items']):
