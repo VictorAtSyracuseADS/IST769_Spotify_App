@@ -1,3 +1,6 @@
+# from Jarett Evans
+# https://towardsdatascience.com/how-to-utilize-spotifys-api-and-create-a-user-interface-in-streamlit-5d8820db95d5
+
 import base64
 import datetime
 from urllib.parse import urlencode
@@ -79,7 +82,7 @@ class SpotifyAPI(object):
 
   def base_search(self, query_params):
       headers = self.get_resource_header()
-      endpoint = "https://api.spotify.com/v1/recommendations"
+      endpoint = "https://api.spotify.com/v1/search"
       lookup_url = f"{endpoint}?{query_params}"
       print(lookup_url)
       r = requests.get(lookup_url, headers=headers)
