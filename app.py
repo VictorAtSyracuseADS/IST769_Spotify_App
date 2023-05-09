@@ -48,7 +48,7 @@ data = []
 
 for i, item in enumerate(Track_df.sort_values(by="Popularity", ascending = False)):
     if Duration > current_dur:
-        artist = row['Artist'])
+        artist = row['Artist']
         song = row['Song Name']
         pop = row['Popularity']
         dur = row['Duration']                        
