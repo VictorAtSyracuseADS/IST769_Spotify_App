@@ -10,7 +10,7 @@ local_css("style.css")
 
 st.title("Spotify App")
 Name_of_Playlist = st.text_input("Enter type of playlist")
-Duration_Range = st.slider(label="Duration of playlist in minutes", min_value = 4, max_value = 180, value = (60, 80), help = "Choose a range of the playlist length using minutes")
+Duration_Range = st.slider(label="Duration of playlist in minutes", help = "Choose a range of the playlist length using minutes")
 button_clicked = st.button("OK")
 
 # Spotify API
