@@ -59,6 +59,6 @@ for i, item in enumerate(Track_df.sort_values(by="Popularity", ascending = False
         break
 
 # Show the result from the filter
-Result_df = pd.DataFrame(data, index=None, columns=('Artist', 'Song Name', 'Popularity', 'Duration')
+Result_df = pd.DataFrame(data, index=None, columns=('Artist', 'Song Name', 'Popularity', 'Duration'))
 
-st.table(Result_df[['Artist','Album Name', 'Song Name', 'Popularity', 'Duration']])
+st.table(Result_df[['Artist', 'Song Name', 'Popularity', 'Duration']])
