@@ -43,22 +43,23 @@ def convert_ms(duration):
 
 Track_df['Duration'] = Track_df['Duration'].apply(convert_ms)
 
-Result_df = pd.DataFrame(columns=('Artist', 'Song Name', 'Popularity', 'Duration'))
 current_dur = 0
+data = []
 
-
-for index, row in Track_df.sort_values(by="Popularity", ascending = False).iterrows():
+for i, item in enumerate(Track_df.sort_values(by="Popularity", ascending = False)):
     if Duration > current_dur:
-        Result_df = Result_df.append({'Artist': row['Artist'], \
-                                      'Song Name': row['Song Name'], \
-                                      'Popularity': row['Popularity'], \
-                                      'Duration': row['Duration']}, ignore_index =True)
+        artist = row['Artist'])
+        song = row['Song Name']
+        pop = row['Popularity']
+        dur = row['Duration']                        
+        data.append((artist, song, pop, dur))
         current_dur += int(row['Duration'])
     else:
         current_dur = 0
         break
 
 # Show the result from the filter
+Result_df = pd.DataFrame(data, index=None, columns=('Artist', 'Song Name', 'Popularity', 'Duration')
 chart = st.line_chart(Result_df['Duration'], Result_df['Popularity'])
 
 st.table(Result_df[['Artist','Album Name', 'Song Name', 'Popularity', 'Duration']])
