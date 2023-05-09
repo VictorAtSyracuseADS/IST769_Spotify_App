@@ -32,7 +32,7 @@ for i, item in enumerate(Data['tracks']['items']):
     track_id = item['id']
     song_name = item['name']
     popularity = item['popularity']
-    duration = item['duration']
+    duration = round(item['duration_ms'] / 60000, 0)
     need.append((i, track['artists'][0]['name'], track['name'], track_id, song_name, track['release_date'], popularity, duration))
  
 Track_df = pd.DataFrame(need, index=None, columns=('Item', 'Artist', 'Album Name', 'Id', 'Song Name', 'Release Date', 'Popularity'))
