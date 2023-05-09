@@ -48,7 +48,7 @@ current_dur = 0
 
 for index, row in Track_df.sort_values(by="Popularity").iterrows():
     if Duration >= current_dur:
-        Result_df.concat(row)
+        Result_df.concat([Result_df, row])
         current_dur += int(row['Duration'])
     else:
         current_dur = 0
