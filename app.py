@@ -35,7 +35,7 @@ for i, item in enumerate(Data['tracks']['items']):
     duration = item['duration_ms']
     need.append((i, track['artists'][0]['name'], track['name'], track_id, song_name, track['release_date'], popularity, duration))
  
-Track_df = pd.DataFrame(need, index=None, columns=('Item', 'Artist', 'Album Name', 'Id', 'Song Name', 'Release Date', 'Popularity'))
+Track_df = pd.DataFrame(need, index=None, columns=('Item', 'Artist', 'Album Name', 'Id', 'Song Name', 'Release Date', 'Popularity', 'Duration (ms)'))
 
 access_token = spotify.access_token
 
