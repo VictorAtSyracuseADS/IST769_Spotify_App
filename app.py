@@ -24,7 +24,7 @@ client_secret = secret
 spotify = SpotifyAPI(client_id, client_secret)
 
 # Search for the track using Spotipy and get its ID
-results = spotify.search(q=f"track:{Name_of_Track}", type="track")
+results = spotify.search({"track": f"{Name_of_Track}"}, search_type="track")
 track_id = results["tracks"]["items"][0]["id"]
 
 # Generate song recommendations using Spotipy
