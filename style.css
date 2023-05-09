@@ -4,6 +4,7 @@ body {
 }
 
 .stButton>button {
+    text-align: center;
     color: #1e221e;
     border-radius: 1em;
     border-color: aquamarine;
