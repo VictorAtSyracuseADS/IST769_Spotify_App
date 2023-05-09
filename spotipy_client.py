@@ -79,7 +79,7 @@ class SpotifyAPI(object):
 
   def base_search(self, query_params):
       headers = self.get_resource_header()
-      endpoint = "https://api.spotify.com/v1/search"
+      endpoint = "https://api.spotify.com/v1/recommendations"
       lookup_url = f"{endpoint}?{query_params}"
       print(lookup_url)
       r = requests.get(lookup_url, headers=headers)
