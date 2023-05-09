@@ -43,19 +43,22 @@ def convert_ms(duration):
 
 Track_df['Duration'] = Track_df['Duration'].apply(convert_ms)
 
-Result_df = pd.DataFrame(columns=('Item', 'Artist', 'Album Name', 'Id', 'Song Name', 'Release Date', 'Popularity', 'Duration'))
+Result_df = pd.DataFrame(columns=('Artist', 'Song Name', 'Popularity', 'Duration'))
 current_dur = 0
 
-chart = st.line_chart(Result_df['Duration'], Result_df['Popularity'])
 
 for index, row in Track_df.sort_values(by="Popularity", ascending = False).iterrows():
     if Duration > current_dur:
-        chart.add_rows(row['Duration'], row['Popularity'])
+        Result_df = Result_df.append({'Artist': row['Artist'], \
+                                      'Song Name': row['Song Name'], \
+                                      'Popularity': , row['Popularity'], \
+                                      'Duration': row['Duration']}, ignore_index =True)
         current_dur += int(row['Duration'])
-        time.sleep(1)
     else:
         current_dur = 0
         break
 
 # Show the result from the filter
-# st.table(Result_df[['Artist','Album Name', 'Song Name', 'Popularity', 'Duration']])
+chart = st.line_chart(Result_df['Duration'], Result_df['Popularity'])
+
+st.table(Result_df[['Artist','Album Name', 'Song Name', 'Popularity', 'Duration']])
