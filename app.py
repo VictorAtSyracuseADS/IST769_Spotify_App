@@ -46,7 +46,7 @@ headers = {
 endpoint = "https://api.spotify.com/v1/audio-features/"
 
 Feat_df = pd.DataFrame()
-for id in Track_df['Id'].iteritems():
+for id in Track_df['Id']:
     track_id = id[1]
     lookup_url = f"{endpoint}{track_id}"
     #print(lookup_url)
