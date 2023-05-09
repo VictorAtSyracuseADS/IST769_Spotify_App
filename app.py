@@ -44,4 +44,4 @@ headers = {
 }
 endpoint = "https://api.spotify.com/v1/audio-features/"
 
-st.table(Track_df[['Artist','Album Name', 'Song Name', 'Popularity']])
+st.table(Track_df[['Artist','Album Name', 'Song Name', 'Popularity', 'Duration (min)']])
