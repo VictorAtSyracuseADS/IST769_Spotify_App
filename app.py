@@ -23,7 +23,7 @@ client_secret = secret
 
 spotify = SpotifyAPI(client_id, client_secret)
 
-Data = spotify.search({"playlist": f"{Name_of_Playlist}"}, search_type="playlist")
+Data = spotify.search({"track": f"{Name_of_Playlist}"}, search_type="track")
 
 need = []
 for i, item in enumerate(Data['tracks']['items']):
