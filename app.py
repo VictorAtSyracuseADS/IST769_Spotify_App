@@ -39,7 +39,7 @@ for i, item in enumerate(Data['tracks']['items']):
 Track_df = pd.DataFrame(need, index=None, columns=('Item', 'Artist', 'Album Name', 'Id', 'Song Name', 'Release Date', 'Popularity', 'Duration'))
 
 def convert_ms(duration):
-    minutes = float(round(duration / 60000, 1))
+    minutes = int(round(duration / 60000, 1))
     return minutes 
 
 Track_df['Duration'] = Track_df['Duration'].apply(convert_ms)
