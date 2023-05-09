@@ -25,11 +25,7 @@ client_secret = secret
 spotify = SpotifyAPI(client_id, client_secret)
 
 # Search for the track using Spotipy and get its ID
-results = spotify.search({"track": f"{Name_of_Track}"}, search_type="track")
-track_id = results["tracks"]["items"][0]["id"]
-
-# Generate song recommendations using Spotipy
-Data = spotiFy.recommendations(seed_tracks=[track_id], limit=100)
+Data = spotify.search({"track": f"{Name_of_Track}"}, search_type="track")
 
 need = []
 for i, item in enumerate(Data['tracks']['items']):
