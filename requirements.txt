@@ -1,3 +1,0 @@
-spotipy
-pandas
-streamlit==1.1.*
