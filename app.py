@@ -51,7 +51,7 @@ for index, row in Track_df.sort_values(by="Popularity", ascending = False).iterr
     if Duration > current_dur:
         Result_df = Result_df.append({'Artist': row['Artist'], \
                                       'Song Name': row['Song Name'], \
-                                      'Popularity': , row['Popularity'], \
+                                      'Popularity': row['Popularity'], \
                                       'Duration': row['Duration']}, ignore_index =True)
         current_dur += int(row['Duration'])
     else:
